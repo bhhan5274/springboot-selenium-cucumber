@@ -1,0 +1,26 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile("io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion")
+    compile("org.seleniumhq.selenium:selenium-java:$seleniumVersion")
+
+    testCompile 'io.cucumber:cucumber-java:6.9.1'
+    testCompile 'io.cucumber:cucumber-testng:6.9.1'
+    testCompile 'io.cucumber:cucumber-spring:6.9.1'
+    testCompile("org.testng:testng:$testingVersion")
+    testImplementation('org.springframework.boot:spring-boot-starter-test'){
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useTestNG(){
+        suites 'src/test/resources/testng.xml'
+    }
+    scanForTestClasses = false
+}

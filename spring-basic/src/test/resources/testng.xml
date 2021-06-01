@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="10" parallel="classes" thread-count="3">
+    <test name="My First Selenium Test">
+        <classes>
+            <class name="io.github.bhhan.TestRunner"/>
+        </classes>
+    </test>
+</suite>
